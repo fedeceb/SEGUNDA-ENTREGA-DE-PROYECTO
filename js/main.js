@@ -1,75 +1,21 @@
 // ----- F1 - SHOP -------
 
-/*class Producto{
-    constructor (id, model, image, precio)
-    {
-        this.id = id;
-        this.model = model;
-        this.image = image;
-        this.precio = precio;
-    }
-}*/
-
-const prod1 = new Producto(1, "Alfa Romeo", "", "");
-const prod2 = new Producto(2, "Aston Martin", "", "");
-const prod3 = new Producto(3, "McLaren", "", "");
-const prod4 = new Producto(4, "Williams", "", "");
-const prod5 = new Producto(5, "Alfa Tauri", "", "");
-const prod6 = new Producto(6, "Ferrari", "", "");
-const prod7 = new Producto(7, "Mercedes", "", "");
-const prod8 = new Producto(8, "Alpine", "", "");
-const prod9 = new Producto(9, "Haas", "", "");
-const prod10 = new Producto(10, "Red Bull", "", "");
+const prod1 = new Producto(1, "Alfa Romeo");
+const prod2 = new Producto(2, "Aston Martin");
+const prod3 = new Producto(3, "McLaren");
+const prod4 = new Producto(4, "Williams");
+const prod5 = new Producto(5, "Alfa Tauri");
+const prod6 = new Producto(6, "Ferrari");
+const prod7 = new Producto(7, "Mercedes");
+const prod8 = new Producto(8, "Alpine");
+const prod9 = new Producto(9, "Haas");
+const prod10 = new Producto(10, "Red Bull");
 
 
 const productos = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10];
+console.log(productos);
 
-/*mostrarMenu();
 
-function mostrarMenu()
-{
-    let opcion = 0;
-
-    while (opcion !==4)
-    {
-        opcion = Number(prompt(`ELIGA SU ACCIÓN:
-                                1. SHOP
-                                2. TICKETS
-                                3. FILTAR PRODUCTOS
-                                4. SALIR`));
-        
-        switch (opcion)
-        {
-            case 1:
-            {
-                listaShop ();
-                break;
-            }
-            
-            case 2:
-            {
-                listaTickets ();
-                break;
-            }
-            case 3:
-                {
-                    filtrarProds ();
-                    break;
-                }
-            case 4:
-                {
-                    alert ("Gracias por la visita!");
-                    break;
-                }
-            default:
-                {
-                    alert ("Opción invalida.");
-                    break;
-                }
-        }
-    }
-}
-*/
 inicializarApp ();
 
 function inicializarApp()
@@ -91,13 +37,6 @@ function listaShop ()
     document.body.appendChild(liShop);
 }
 
-/*filtroProds ()
-{
-    let nombre = prompt("ingresar nombre");
-
-    let
-}*/
-
 
 // ------- EVENTOS --------
 
@@ -111,9 +50,9 @@ function crearTitulo()
     document.body.appendChild(tituloH1);
 }
 
-function crearMenu()
+function crearMenu() //CREAR DIV ACA!!!
 {
-    let opciones = ["SHOP", "TICKETS", "FILTRO PRODUCTOS"]
+    const opciones = ["SHOP", "TICKETS", "FILTRO PRODUCTOS","REGISTRARSE"]
     opciones.forEach((opcion)=>{
         const boton = document.createElement("button");
 
@@ -131,14 +70,19 @@ function crearMenu()
             })
         }*/
 
-        /*else if (opcion === "FILTRO PRODUCTOS")
+        if (opcion === "BUSCAR PRODUCTOS")
         {
             boton.addEventListener("click", () =>{
-            let filProd = filtroProds ();
+            let filProd = buscarProds ();
 
             listaShop(filProd);
             listaTickets(filProd);
             })
+        }
+
+        /*if (opcion === "REGISTRARSE")
+        {
+
         }*/
 
         boton.innerHTML = opcion;
@@ -146,3 +90,9 @@ function crearMenu()
     })
 }
 
+function buscarProds ()
+{
+    let nombre = prompt("Ingresar producto");
+
+    let encontrados = productos.filter((producto) => producto.model.toLowerCase().indexOf(model.toLocaleLowerCase())!==-1);
+}

@@ -1,6 +1,6 @@
 
 
-const modelo = [
+const producto = [
     {
         id: 1,
         model: "Alfa Romeo",
