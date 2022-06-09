@@ -1,10 +1,10 @@
 
 
-const productos = [
+const modelo = [
     {
         id: 1,
         model: "Alfa Romeo",
-        image:"",
+        image:'',
         precio:""
     },
     {
@@ -60,7 +60,5 @@ const productos = [
         model: "Red Bull",
         image:"",
         precio:""
-    },
-
-
+    }
 ]
