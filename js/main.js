@@ -1,19 +1,7 @@
 // ----- F1 - SHOP -------
 
-const prod1 = new Producto(1, "Alfa Romeo");
-const prod2 = new Producto(2, "Aston Martin");
-const prod3 = new Producto(3, "McLaren");
-const prod4 = new Producto(4, "Williams");
-const prod5 = new Producto(5, "Alfa Tauri");
-const prod6 = new Producto(6, "Ferrari");
-const prod7 = new Producto(7, "Mercedes");
-const prod8 = new Producto(8, "Alpine");
-const prod9 = new Producto(9, "Haas");
-const prod10 = new Producto(10, "Red Bull");
-
-
-const productos = [prod1, prod2, prod3, prod4, prod5, prod6, prod7, prod8, prod9, prod10];
 console.log(productos);
+console.log(circuitos);
 
 
 inicializarApp ();
@@ -31,7 +19,7 @@ function listaShop ()
 
     productos.forEach((producto) =>{
         const nodoli = document.createElement("li");
-        nodoli.innerHTML = `${producto.producto}`;
+        nodoli.innerHTML = `${producto.model}`;
         liShop.appendChild(nodoli);
     });
     document.body.appendChild(liShop);
@@ -52,31 +40,21 @@ function crearTitulo()
 
 function crearMenu() //CREAR DIV ACA!!!
 {
-    const opciones = ["SHOP", "TICKETS", "FILTRO PRODUCTOS","REGISTRARSE"]
+    const opciones = ["SHOP", "TICKETS","REGISTRARSE"]
     opciones.forEach((opcion)=>{
         const boton = document.createElement("button");
 
-        if (opcion === "SHOP")
+        if (opciones === "SHOP")
         {
             boton.addEventListener("click", ()=>{
                 listaShop ();
             })
         }
         
-        /*if (opcion === "TICKETS")
+        if (opcion === "TICKETS")
         {
             boton.addEventListener("click", ()=>{
                 listaTickets ();
-            })
-        }*/
-
-        if (opcion === "BUSCAR PRODUCTOS")
-        {
-            boton.addEventListener("click", () =>{
-            let filProd = buscarProds ();
-
-            listaShop(filProd);
-            listaTickets(filProd);
             })
         }
 
@@ -88,6 +66,18 @@ function crearMenu() //CREAR DIV ACA!!!
         boton.innerHTML = opcion;
         document.body.appendChild(boton);
     })
+}
+
+function listaTickets()
+{
+    const liTickets = document.createElement("ul");
+    
+    circuitos.forEach((circuito) =>{
+        const nodoli = document.createElement("li");
+        nodoli.innerHTML = `${circuito.circuit}`;
+        liTickets.appendChild(nodoli);
+    });
+    document.body.appendChild(liTickets);
 }
 
 function buscarProds ()
